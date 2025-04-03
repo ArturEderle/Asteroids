@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from asteroid import Asteroid
@@ -31,6 +33,11 @@ def main():
 
         for drawable_sprite in drawable:
             drawable_sprite.draw(screen)
+
+        for asteroid in asteroids:
+            if player.collide(asteroid):
+                print("Game Over!")
+                sys.exit()
 
         pygame.display.flip()
 
